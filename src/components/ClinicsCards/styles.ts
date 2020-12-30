@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   background: #fff;
@@ -73,6 +73,7 @@ export const Container = styled.div`
       }
 
       .clinic-whatsapp {
+        cursor: pointer;
         height: 80px;
         width: 150px;
         border-radius: 10px;

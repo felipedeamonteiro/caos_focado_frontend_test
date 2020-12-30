@@ -1,9 +1,46 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
+import ClinicsServices from '../ClinicsServices';
 
 import { Container } from './styles';
 
-const ClinicsCards: React.FC = () => {
+interface ClinicsData {
+  name: string;
+  zip: string;
+  email: string;
+  services: string[];
+  whatsapp: string;
+}
+
+const ClinicsCards: React.FC<ClinicsData> = ({
+  name,
+  zip,
+  email,
+  services,
+  whatsapp,
+}) => {
+  const [exames, setExames] = useState<boolean>(false);
+  const [complementar, setComplementar] = useState<boolean>(false);
+  const [ppra, setPpra] = useState<boolean>(false);
+  const [pcmso, setPcmso] = useState<boolean>(false);
+
+  useEffect(() => {
+    services.forEach(service => {
+      if (service === 'Exames Clínicos') {
+        setExames(true);
+      }
+      if (service === 'Exames Complementares') {
+        setComplementar(true);
+      }
+      if (service === 'PPRA') {
+        setPpra(true);
+      }
+      if (service === 'PCMSO') {
+        setPcmso(true);
+      }
+    });
+  }, [services]);
+
   return (
     <Container>
       <div className="card-tag">
@@ -11,19 +48,21 @@ const ClinicsCards: React.FC = () => {
       </div>
       <div className="card-content">
         <div className="content-left">
-          <h1>ESH SOLUÇÕES INTELIGENTES</h1>
+          <h1>{name}</h1>
           <div>
-            <p>04602-002</p>
-            <p>contato@ehsss.com.br</p>
+            <p>{zip}</p>
+            <p>{email}</p>
           </div>
         </div>
         <div className="content-right">
           <div className="clinic-services">
             <ul>
-              <li>Exames Clínicos</li>
-              <li>Ex. Complementares</li>
-              <li>PPRA</li>
-              <li>PCMSO</li>
+              <ClinicsServices exames={exames}>Exames Clínicos</ClinicsServices>
+              <ClinicsServices complementar={complementar}>
+                Ex. Complementares
+              </ClinicsServices>
+              <ClinicsServices ppra={ppra}>PPRA</ClinicsServices>
+              <ClinicsServices pcmso={pcmso}>PCMSO</ClinicsServices>
             </ul>
           </div>
           <div className="clinic-whatsapp">
@@ -31,7 +70,7 @@ const ClinicsCards: React.FC = () => {
               <FaWhatsapp size={15} color="#fff" />
               <p>WhatsApp</p>
             </div>
-            <h3>(11) 93477-9755</h3>
+            <h3>{whatsapp}</h3>
           </div>
         </div>
       </div>
