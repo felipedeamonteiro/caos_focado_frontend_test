@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const Container = styled.div`
   background: #fff;
@@ -62,12 +62,21 @@ export const Container = styled.div`
           li + li {
             margin-top: 10px;
           }
-          li {
+          .colored-services {
             list-style: none;
             border-radius: 20px;
             background: #baffbf;
             padding: 3px 10px;
             text-align: center;
+            text-transform: uppercase;
+          }
+          .noncolored-services {
+            list-style: none;
+            border: 1px solid black;
+            border-radius: 20px;
+            padding: 3px 10px;
+            text-align: center;
+            text-transform: uppercase;
           }
         }
       }

@@ -8,12 +8,13 @@ import { dados } from '../../server.json';
 const Dashboard: React.FC = () => {
   return (
     <Container>
-      {dados.map(clinica => (
+      {dados.map((clinica, index) => (
         <ClinicsCards
+          key={index}
           name={clinica.NOME}
           zip={clinica.CEP}
           email={clinica.EMAIL}
-          services={clinica.SERVICOS.split(',')}
+          services={clinica.SERVICOS.split(', ')}
           whatsapp={clinica.WHATSAPP}
         />
       ))}

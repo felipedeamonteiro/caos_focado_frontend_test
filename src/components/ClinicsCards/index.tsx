@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { FaWhatsapp } from 'react-icons/fa';
-import ClinicsServices from '../ClinicsServices';
 
 import { Container } from './styles';
 
@@ -28,14 +27,11 @@ const ClinicsCards: React.FC<ClinicsData> = ({
     services.forEach(service => {
       if (service === 'Exames Clínicos') {
         setExames(true);
-      }
-      if (service === 'Exames Complementares') {
+      } else if (service === 'Exames Complementares') {
         setComplementar(true);
-      }
-      if (service === 'PPRA') {
+      } else if (service === 'PPRA') {
         setPpra(true);
-      }
-      if (service === 'PCMSO') {
+      } else if (service === 'PCMSO') {
         setPcmso(true);
       }
     });
@@ -57,12 +53,26 @@ const ClinicsCards: React.FC<ClinicsData> = ({
         <div className="content-right">
           <div className="clinic-services">
             <ul>
-              <ClinicsServices exames={exames}>Exames Clínicos</ClinicsServices>
-              <ClinicsServices complementar={complementar}>
-                Ex. Complementares
-              </ClinicsServices>
-              <ClinicsServices ppra={ppra}>PPRA</ClinicsServices>
-              <ClinicsServices pcmso={pcmso}>PCMSO</ClinicsServices>
+              {exames ? (
+                <li className="colored-services">Exames Clínicos</li>
+              ) : (
+                <li className="noncolored-services">Exames Clínicos</li>
+              )}
+              {complementar ? (
+                <li className="colored-services">Ex. Complementares</li>
+              ) : (
+                <li className="noncolored-services">Ex. Complementares</li>
+              )}
+              {ppra ? (
+                <li className="colored-services">PPRA</li>
+              ) : (
+                <li className="noncolored-services">PPRA</li>
+              )}
+              {pcmso ? (
+                <li className="colored-services">PCMSO</li>
+              ) : (
+                <li className="noncolored-services">PCMSO</li>
+              )}
             </ul>
           </div>
           <div className="clinic-whatsapp">
