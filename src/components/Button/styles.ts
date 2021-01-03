@@ -18,13 +18,13 @@ export const Container = styled.button<ButtonProps>`
   margin-bottom: 25px;
 
   &:hover {
-    background: ${shade(0.2, '#de0039')};
+    background: linear-gradient(to bottom, #de0039 15%, #96009b);
   }
 
   ${props =>
     props.pressed &&
     css`
-      background: #c53030;
+      background: linear-gradient(to bottom, #de0039 15%, #96009b);
       font-weight: bold;
 
       &:hover {

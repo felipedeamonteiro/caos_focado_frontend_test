@@ -38,27 +38,40 @@ const AddClinicsForm: React.FC = () => {
   return (
     <Container>
       <Form ref={formRef} onSubmit={handleSubmit} id="form">
-        <div className="left-div">
-          <Input
-            name="clinicName"
-            placeholder="Digite o nome da clínica"
-            label="Nome da Clínica"
-          />
-          <Input name="cep" placeholder="Digite o cep da clínica" label="CEP" />
-          <Input
-            name="address"
-            placeholder="Endereço"
-            label="Endereço da Clínica"
-          />
+        <div className="upper-title">
+          <h2>Adicionar Clínica</h2>
         </div>
-        <div className="right-div">
-          <Input name="email" placeholder="Digite o email" label="Email" />
-          <Input
-            name="whatsapp"
-            placeholder="Digite o WhatsApp"
-            label="WhatsApp"
-          />
-          <Checkbox name="checkbox" options={checkboxOptions} />
+        <div className="input-div">
+          <div className="left-div">
+            <Input
+              name="clinicName"
+              placeholder="Digite o nome da clínica"
+              label="Nome da Clínica"
+            />
+            <Input
+              name="cep"
+              placeholder="Digite o cep da clínica"
+              label="CEP"
+            />
+            <Input
+              name="address"
+              placeholder="Endereço"
+              label="Endereço da Clínica"
+            />
+          </div>
+          <div className="right-div">
+            <Input name="email" placeholder="Digite o email" label="Email" />
+            <Input
+              name="whatsapp"
+              placeholder="Digite o WhatsApp"
+              label="WhatsApp"
+            />
+            <Checkbox
+              name="checkbox"
+              label="Serviços"
+              options={checkboxOptions}
+            />
+          </div>
         </div>
         <div className="button-div">
           <Button type="submit">Adicionar</Button>

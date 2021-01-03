@@ -2,8 +2,11 @@
 import React, { useEffect, useRef, InputHTMLAttributes } from 'react';
 import { useField } from '@unform/core';
 
+import { Container } from './styles';
+
 interface Props extends InputHTMLAttributes<HTMLInputElement> {
   name: string;
+  label: string;
   options: {
     id: string;
     value: string;
@@ -11,7 +14,7 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
   }[];
 }
 
-const Checkbox: React.FC<Props> = ({ name, options, ...rest }) => {
+const Checkbox: React.FC<Props> = ({ name, label, options, ...rest }) => {
   const inputRefs = useRef<HTMLInputElement[]>([]);
   const { fieldName, registerField, defaultValue = [] } = useField(name);
 
@@ -38,23 +41,28 @@ const Checkbox: React.FC<Props> = ({ name, options, ...rest }) => {
   }, [defaultValue, fieldName, registerField]);
 
   return (
-    <div>
-      {options.map((option, index) => (
-        <label htmlFor={option.id} key={option.id}>
-          <input
-            defaultChecked={defaultValue.find((dv: string) => dv === option.id)}
-            ref={ref => {
-              inputRefs.current[index] = ref as HTMLInputElement;
-            }}
-            value={option.value}
-            type="checkbox"
-            id={option.id}
-            {...rest}
-          />
-          {option.label}
-        </label>
-      ))}
-    </div>
+    <Container>
+      <label htmlFor="checkbox">{label}</label>
+      <div className="check-div">
+        {options.map((option, index) => (
+          <label htmlFor={option.id} key={option.id}>
+            <input
+              defaultChecked={defaultValue.find(
+                (dv: string) => dv === option.id,
+              )}
+              ref={ref => {
+                inputRefs.current[index] = ref as HTMLInputElement;
+              }}
+              value={option.value}
+              type="checkbox"
+              id={option.id}
+              {...rest}
+            />
+            {option.label}
+          </label>
+        ))}
+      </div>
+    </Container>
   );
 };
 
