@@ -13,6 +13,7 @@ export const Container = styled.button<ButtonProps>`
   font-weight: 500;
   border-radius: 5px;
   color: #fff;
+  font-weight: bold;
   background: linear-gradient(to bottom, #5ea7f5 15%, #96009b);
   margin-bottom: 25px;
 
@@ -24,6 +25,7 @@ export const Container = styled.button<ButtonProps>`
     props.pressed &&
     css`
       background: #c53030;
+      font-weight: bold;
 
       &:hover {
         background: linear-gradient(to bottom, #5ea7f5 15%, #96009b);

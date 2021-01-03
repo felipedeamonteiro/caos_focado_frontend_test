@@ -1,5 +1,6 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 
+import { Link } from 'react-router-dom';
 import ClinicsCards from '../../components/ClinicsCards';
 import Button from '../../components/Button';
 import { Container } from './styles';
@@ -24,6 +25,7 @@ const Dashboard: React.FC = () => {
   const sortClinicsData = useCallback(() => {
     if (pressedButton) {
       setPressedButton(false);
+      setUnsortedClinics(dados);
     } else {
       const sortedDados = copyOfDados.sort((a, b) =>
         a.NOME !== b.NOME ? (a.NOME < b.NOME ? -1 : 1) : 0,
@@ -35,9 +37,15 @@ const Dashboard: React.FC = () => {
 
   return (
     <Container>
-      <Button pressed={pressedButton} onClick={sortClinicsData}>
-        {pressedButton ? 'Voltar' : 'Mostrar em ordem alfabética'}
-      </Button>
+      <div className="upper-div">
+        <Button pressed={pressedButton} onClick={sortClinicsData}>
+          {pressedButton ? 'Voltar' : 'Mostrar em ordem alfabética'}
+        </Button>
+        <Link to="/adicionar_clinica">
+          <Button>Adicionar Clínica</Button>
+        </Link>
+      </div>
+
       {pressedButton &&
         sortedClinics.map((clinica, index) => (
           <ClinicsCards
