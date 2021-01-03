@@ -1,6 +1,7 @@
 import React, { useCallback, useRef } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
+import cep from 'cep-promise';
 
 import { Container } from './styles';
 import Input from '../../components/Input';
@@ -35,6 +36,17 @@ const AddClinicsForm: React.FC = () => {
     console.log('data', data);
   }, []);
 
+  const onBlurCep = useCallback(async event => {
+    const cepNumber = event.target.value.replace('-', '');
+    if (cepNumber.length !== 8) {
+      // eslint-disable-next-line no-useless-return
+      // retornar erro de complete
+      return;
+    }
+    const res = await cep(cepNumber);
+    console.log('res', res);
+  }, []);
+
   return (
     <Container>
       <Form ref={formRef} onSubmit={handleSubmit} id="form">
@@ -52,6 +64,8 @@ const AddClinicsForm: React.FC = () => {
               name="cep"
               placeholder="Digite o cep da clínica"
               label="CEP"
+              mask="99999-999"
+              onBlur={onBlurCep}
             />
             <Input
               name="address"
