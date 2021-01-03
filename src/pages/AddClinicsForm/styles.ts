@@ -23,6 +23,16 @@ export const Container = styled.div`
 
       .left-div {
         margin-bottom: 75px;
+
+        .error-messages1 {
+          color: #ff0000;
+          font-size: 14px;
+
+          p {
+            margin: -26px 0 10px 0 !important;
+            max-width: 325px;
+          }
+        }
       }
 
       .right-div {

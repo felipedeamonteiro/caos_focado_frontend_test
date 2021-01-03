@@ -14,8 +14,13 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
     label {
       font-size: 14px;
+
+      input {
+        margin-right: 5px;
+      }
     }
   }
 `;

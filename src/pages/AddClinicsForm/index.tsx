@@ -1,4 +1,5 @@
-import React, { useCallback, useRef } from 'react';
+/* eslint-disable react/jsx-indent */
+import React, { useCallback, useRef, useState } from 'react';
 import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 import cep from 'cep-promise';
@@ -15,6 +16,13 @@ interface CheckboxOption {
 }
 
 const AddClinicsForm: React.FC = () => {
+  const [submissionErrors, setSubmissionErrors] = useState<any>([]);
+  const [gotsubmissionErrors, setGotsubmissionErrors] = useState<boolean>(
+    false,
+  );
+  const [errorCep, setErrorCep] = useState<string>('');
+  const [gotErrorCep, setGotErrorCep] = useState<boolean>(false);
+
   const formRef = useRef<FormHandles>(null);
 
   const checkboxOptions: CheckboxOption[] = [
@@ -37,14 +45,21 @@ const AddClinicsForm: React.FC = () => {
   }, []);
 
   const onBlurCep = useCallback(async event => {
-    const cepNumber = event.target.value.replace('-', '');
-    if (cepNumber.length !== 8) {
-      // eslint-disable-next-line no-useless-return
-      // retornar erro de complete
-      return;
+    try {
+      setGotErrorCep(false);
+      const cepNumber = event.target.value.replace('-', '');
+      if (cepNumber.length === 0) {
+        return;
+      }
+      const res = await cep(cepNumber);
+
+      formRef.current?.setFieldValue('address', res.street);
+    } catch (error) {
+      setGotErrorCep(true);
+      setErrorCep(
+        'O CEP digitado não corresponde a nenhum endereço. Tente novamente.',
+      );
     }
-    const res = await cep(cepNumber);
-    console.log('res', res);
   }, []);
 
   return (
@@ -67,6 +82,13 @@ const AddClinicsForm: React.FC = () => {
               mask="99999-999"
               onBlur={onBlurCep}
             />
+            {gotErrorCep ? (
+              <span className="error-messages1">
+                <p>{errorCep}</p>
+              </span>
+            ) : (
+              ''
+            )}
             <Input
               name="address"
               placeholder="Endereço"
@@ -89,6 +111,17 @@ const AddClinicsForm: React.FC = () => {
         </div>
         <div className="button-div">
           <Button type="submit">Adicionar</Button>
+        </div>
+        <div className="error-div">
+          <ul style={{ listStyle: 'none' }}>
+            {gotsubmissionErrors
+              ? submissionErrors.map((error: any, index: number) => (
+                  <li key={index} style={{ marginTop: 2 }}>
+                    <p style={{ color: 'red', fontSize: 14 }}>{error}</p>
+                  </li>
+                ))
+              : ''}
+          </ul>
         </div>
       </Form>
     </Container>
