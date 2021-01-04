@@ -19,4 +19,13 @@ export const Container = styled.div`
       font-weight: bold;
     }
   }
+
+  @media only screen and (max-width: 770px) {
+    .upper-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  }
 `;
