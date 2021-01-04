@@ -1,4 +1,4 @@
-# Hiring Test - Venturus - Frontend
+# Hiring Test - Caos Focado - Frontend
 
 This is a frontend aplication to the frontend developer job at the company Caos Focado
 
