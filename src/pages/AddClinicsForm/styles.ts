@@ -68,4 +68,48 @@ export const Container = styled.div`
       align-items: center;
     }
   }
+
+  @media only screen and (max-width: 415px) {
+    .left-div {
+      input {
+        width: 300px;
+      }
+    }
+
+    .right-div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .email-input,
+      .whatsapp-input {
+        width: 300px;
+      }
+    }
+  }
+
+  @media only screen and (max-width: 770px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    a {
+      margin-bottom: 20px;
+    }
+
+    form {
+      .input-div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .left-div {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
 `;

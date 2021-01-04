@@ -109,4 +109,77 @@ export const Container = styled.div`
       }
     }
   }
+
+  @media only screen and (max-width: 415px) {
+    height: 450px !important;
+
+    .card-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-left: 0;
+
+      .content-left {
+        width: 350px;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        h1 {
+          text-align: center;
+          font-size: 18px;
+          max-width: 200px;
+          white-space: pre-wrap;
+        }
+
+        > div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+
+          p {
+            text-align: center;
+            margin-right: 0;
+            max-width: 200px;
+            word-wrap: break-word;
+
+            & + p {
+              margin-top: 5px;
+            }
+          }
+        }
+      }
+
+      .content-right {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        .clinic-services {
+          margin: 0 0 20px 0;
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 770px) {
+    height: 300px;
+
+    .card-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .content-left {
+        width: 450px;
+        margin-bottom: 30px;
+      }
+    }
+  }
 `;
