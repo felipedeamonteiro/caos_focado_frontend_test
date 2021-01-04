@@ -1,46 +1,30 @@
-# Getting Started with Create React App
+# Hiring Test - Venturus - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a frontend aplication to the frontend developer job at the company Caos Focado
 
-## Available Scripts
+## - Specifications and technologies used here
 
-In the project directory, you can run:
+This project was built using `React` with `Typescript`.
 
-### `yarn start`
+Here, `node` version is `12.16.3` and the package manager used is `yarn` in version `1.22.5`. To run the project they have to be downloaded. [Yarn](https://classic.yarnpkg.com/lang/en/) and I recommend installing Node via [NVM](https://github.com/nvm-sh/nvm). All instructions are in the links to install them.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## - How to run the project
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+After downloading the code from the repository, run `yarn` to install all the dependencies.
 
-### `yarn test`
+After that:
+```
+yarn start
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## The application
 
-### `yarn build`
+It's a simple application to show data from a table. Here you it's possible to data from medical clinics. Besides that you can add clinics through a form.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## - How to run tests
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+They were not done yet.
+## - Accessing the project in production
+This project is hosted in an account in [Vercel](https://vercel.com/), and can be accessed here in this [link](https://venturus-frontend-test-2020.vercel.app/).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Enjoy!
