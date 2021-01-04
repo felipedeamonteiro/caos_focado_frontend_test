@@ -25,6 +25,6 @@ It's a simple application to show data from a table. Here you it's possible to d
 
 They were not done yet.
 ## - Accessing the project in production
-This project is hosted in an account in [Vercel](https://vercel.com/), and can be accessed here in this [link](https://venturus-frontend-test-2020.vercel.app/).
+This project is hosted in an account in [Vercel](https://vercel.com/), and can be accessed here in this [link](https://caos-focado-frontend-test.vercel.app/).
 
 Enjoy!
