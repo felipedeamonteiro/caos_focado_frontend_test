@@ -1,7 +1,30 @@
 import styled from 'styled-components';
+import { shade } from 'polished';
 
 export const Container = styled.div`
   padding: 50px;
+
+  a {
+    text-decoration: none;
+
+    button.arrow {
+      margin-top: 3px;
+      cursor: pointer;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border: none;
+      background: none;
+      transition: color 0.2s;
+      h3 {
+        margin-left: 5px;
+      }
+
+      &:hover {
+        color: ${shade(0.2, '#de0039')};
+      }
+    }
+  }
 
   form {
     .upper-title {

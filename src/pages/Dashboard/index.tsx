@@ -41,6 +41,11 @@ const Dashboard: React.FC = () => {
         <Button pressed={pressedButton} onClick={sortClinicsData}>
           {pressedButton ? 'Voltar' : 'Mostrar em ordem alfabética'}
         </Button>
+
+        <p style={{ fontWeight: 'bold', color: '#000' }}>
+          Número de clínicas:
+          {unsortedClinics ? unsortedClinics.length : sortedClinics.length}
+        </p>
         <Link to="/adicionar_clinica">
           <Button>Adicionar Clínica</Button>
         </Link>

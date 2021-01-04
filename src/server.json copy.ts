@@ -1,33 +1,4 @@
-interface FormDataSent {
-  address: string;
-  cep: string;
-  services: string;
-  clinicName: string;
-  email: string;
-  whatsapp: string;
-}
-
-interface ClinicsData {
-  NOME: string;
-  ENDEREÇO: string;
-  CEP: string;
-  EMAIL: string;
-  WHATSAPP: string;
-  SERVICOS: string;
-}
-
-export const addNewClinicToDados = (data: FormDataSent): void => {
-  dados.push({
-    NOME: data.clinicName.toUpperCase(),
-    ENDEREÇO: data.address,
-    CEP: data.cep,
-    EMAIL: data.email,
-    WHATSAPP: data.whatsapp,
-    SERVICOS: data.services,
-  });
-};
-
-export const dados: ClinicsData[] = [
+export const dados = [
   {
     NOME: 'EHS SOLUÇÕES INTELIGENTES',
     ENDEREÇO: 'Rua Barão do Triunfo, 612 / CJ 901',
