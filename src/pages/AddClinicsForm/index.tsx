@@ -161,8 +161,14 @@ const AddClinicsForm: React.FC = () => {
             />
           </div>
           <div className="right-div">
-            <Input name="email" placeholder="Digite o email" label="Email" />
             <Input
+              className="email-input"
+              name="email"
+              placeholder="Digite o email"
+              label="Email"
+            />
+            <Input
+              className="whatsapp-input"
               name="whatsapp"
               mask="(99) 99999-9999"
               placeholder="Digite o WhatsApp"
